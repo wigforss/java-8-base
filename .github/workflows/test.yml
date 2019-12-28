@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Copy settings.xml
-        run: ls -l $GITHUB_WORKSPACE
+        run: env
       - name: View file
         run: ls -l $HOME
 
