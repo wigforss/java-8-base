@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Build and deploy with Maven
-        run: echo $MAVEN_USERNAME
+        run: echo MAVEN_USERNAME
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
