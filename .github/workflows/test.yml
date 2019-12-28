@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build and deploy with Maven
-        run: echo MAVEN_USERNAME
-        env:
-          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+      - name: Copy settings.xml
+        run: cp $GITHUB_WORKSPACE/.github/maven/settings.xml $HOME
+      - name: View file
+        run: cat $HOME/settings.xml
+
