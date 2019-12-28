@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Cache maven
       - name: Build and deploy with Maven
         run: echo $MAVEN_USERNAME
         env:
