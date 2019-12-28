@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Copy settings.xml
-        run: ls -l $RUNNER_WORKSPACE
+        run: pwd
       - name: View file
         run: ls -l $HOME
 
