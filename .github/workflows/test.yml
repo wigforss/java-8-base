@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Copy settings.xml
-        run: cp $GITHUB_WORKSPACE/.github/maven/settings.xml $HOME
+        run: cp $GITHUB_WORKSPACE/../.github/maven/settings.xml $HOME
       - name: View file
         run: cat $HOME/settings.xml
 
