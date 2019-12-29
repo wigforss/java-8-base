@@ -34,7 +34,7 @@ jobs:
         gpg --passphrase $GPG_PWD --batch -no-tty --import signing-key.asc
         rm signing-key.asc
         env
-        mvn -B -X package deploy -P gpg --file pom.xml -s .github/maven/settings.xml
+        mvn -B package deploy -P gpg --file pom.xml -s .github/maven/settings.xml
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
