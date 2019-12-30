@@ -25,7 +25,7 @@ jobs:
         java-version: 1.8
     - name: Test
       run: mvn -B clean verify -s .github/maven/settings.xml
-    - name: Build and deploy with Maven
+    - name: Build and deploy
       run: mvn -B package deploy -s .github/maven/settings.xml
       if: github.ref == 'refs/heads/master'
       env:
