@@ -18,6 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <scm.path>wigforss/${project.artifactId}.git</scm.path>
     </properties>
 
 
@@ -44,13 +45,13 @@
 
     <ciManagement>
         <system>Github Workflow</system>
-        <url>https://github.com/wigforss/java-8-base/</url>
+        <url>https://github.com/wigforss/${project.artifactId}/</url>
     </ciManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/wigforss/java-8-base.git</connection>
-        <developerConnection>scm:git:https://github.com/wigforss/java-8-base.git</developerConnection>
-        <url>https://github.com/wigforss/java-8-base.git</url>
+        <connection>scm:git:git://github.com/wigforss/${scm.path}</connection>
+        <developerConnection>scm:git:git@github.com/${scm.path}}</developerConnection>
+        <url>https://github.com/${scm.path}</url>
         <tag>HEAD</tag>
     </scm>
 
