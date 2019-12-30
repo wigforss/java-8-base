@@ -32,9 +32,11 @@ jobs:
         CRYPTO: ${{ secrets.CRYPTO }}
         GPG_PWD: ${{ secrets.GPG_PWD }}
     - name: Build and deploy with Maven
-      run: mvn -B package deploy -P gpg --file pom.xml -s .github/maven/settings.xml
+      run: mvn -V -B release:prepare release:perform -P sources,javadoc,gpg -Dusername=$GIT_USER -Dpassword=$GIT_PWD -s .github/maven/settings.xml
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
         GPG_PWD: ${{ secrets.GPG_PWD }}
         GPG_KEY: ${{ secrets.GPG_KEY }}
+        GIT_PWD: ${{ secrets.GIT_PWD }}
+        GIT_USER: ${{ secrets.GIT_USER }}
