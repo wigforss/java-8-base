@@ -26,7 +26,7 @@ jobs:
     - name: Test
       run: mvn -B clean verify -s .github/maven/settings.xml
     - name: Build and deploy with Maven
-      run: mvn -B package deploy pom.xml -s .github/maven/settings.xml
+      run: mvn -B package deploy -s .github/maven/settings.xml
       if: github.ref == 'refs/heads/master'
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
