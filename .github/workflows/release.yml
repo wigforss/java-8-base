@@ -31,7 +31,11 @@ jobs:
       env:
         CRYPTO: ${{ secrets.CRYPTO }}
         GPG_PWD: ${{ secrets.GPG_PWD }}
-    - name: Build and deploy with Maven
+    - name: Configure git
+      run: |
+        git config user.email $GIT_EMAIL
+        git config user.name $GIT_USER
+    - name: Release with Maven
       run: mvn -V -B release:prepare release:perform -P sources,javadoc,gpg -Dusername=$GIT_USER -Dpassword=$GIT_PWD -s .github/maven/settings.xml
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
@@ -40,3 +44,4 @@ jobs:
         GPG_KEY: ${{ secrets.GPG_KEY }}
         GIT_PWD: ${{ secrets.GIT_PWD }}
         GIT_USER: ${{ secrets.GIT_USER }}
+        GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
