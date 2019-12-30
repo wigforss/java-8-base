@@ -27,7 +27,7 @@ jobs:
       run: mvn -B clean verify -s .github/maven/settings.xml
     - name: Build and deploy
       run: mvn -B package deploy -s .github/maven/settings.xml
-      if: github.ref == 'refs/heads/master'
+      if: success() && github.ref == 'refs/heads/master'
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
