@@ -32,7 +32,7 @@ jobs:
         CRYPTO: ${{ secrets.CRYPTO }}
         GPG_PWD: ${{ secrets.GPG_PWD }}
     - name: Configure git name
-        run: git config --global user.name $GITHUB_ACTOR
+      run: git config --global user.name $GITHUB_ACTOR
     - name: Release with Maven
       run: mvn -V -B release:prepare release:perform -P sources,javadoc,gpg -s .github/maven/settings.xml
       env:
