@@ -50,7 +50,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/wigforss/${scm.path}</connection>
-        <developerConnection>scm:git:git@github.com/${scm.path}}</developerConnection>
+        <developerConnection>scm:git:git@github.com/${scm.path}</developerConnection>
         <url>https://github.com/${scm.path}</url>
         <tag>HEAD</tag>
     </scm>
