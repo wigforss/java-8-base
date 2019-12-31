@@ -31,12 +31,8 @@ jobs:
       env:
         CRYPTO: ${{ secrets.CRYPTO }}
         GPG_PWD: ${{ secrets.GPG_PWD }}
-    - name: Configure git
-      run: |
-        git config --global user.email $GIT_EMAIL
-        git config --global user.name $GIT_USER
     - name: Release with Maven
-      run: mvn -V -B release:prepare release:perform -P sources,javadoc,gpg -Dusername=$GIT_USER -Dpassword=$GIT_PWD -s .github/maven/settings.xml
+      run: mvn -V -B release:prepare release:perform -P sources,javadoc,gpg -s .github/maven/settings.xml
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
