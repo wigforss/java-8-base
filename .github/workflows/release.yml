@@ -28,11 +28,11 @@ jobs:
         gpg --batch --passphrase $CRYPTO -o signing-key.asc -d signing-key.enc
         gpg --allow-secret-key-import --passphrase $GPG_PWD --batch --import signing-key.asc
         rm signing-key.asc
-    - name: Configure git name
-      run: git config --global user.name $GITHUB_ACTOR
       env:
         CRYPTO: ${{ secrets.CRYPTO }}
         GPG_PWD: ${{ secrets.GPG_PWD }}
+    - name: Configure git name
+        run: git config --global user.name $GITHUB_ACTOR
     - name: Release with Maven
       run: mvn -V -B release:prepare release:perform -P sources,javadoc,gpg -s .github/maven/settings.xml
       env:
