@@ -34,7 +34,7 @@ jobs:
     - name: Configure git name
       run: git config --global user.name $GITHUB_ACTOR
     - name: Release with Maven
-      run: mvn -V -B release:prepare release:perform -P sources,javadoc,gpg -s .github/maven/settings.xml
+      run: mvn -V -B release:prepare release:perform -Dusername=$GIT_USER -Dpassword=$GIT_PWD -P sources,javadoc,gpg -s .github/maven/settings.xml
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
