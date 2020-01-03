@@ -10,15 +10,20 @@
 
     <name>Java-8-Parent</name>
     <description>The parent pom for Java 8 Projects</description>
-    <url>https://bitbucket.org/hiq-oss/oss-parent-pom.git</url>
+    <url>https://github.com/wigforss/${project.artifactId}</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <jdk.version>11</jdk.version>
+        <maven.compiler.source>1.${jdk.version}</maven.compiler.source>
+        <maven.compiler.target>1.${jdk.version}</maven.compiler.target>
+        <maven.compiler.release>${jdk.version}</maven.compiler.release>
+        <maven.compiler.compilerVersion>1.${jdk.version}</maven.compiler.compilerVersion>
         <scm.path>wigforss/${project.artifactId}.git</scm.path>
+        <scm.connection.url>scm:git:git@github.com:${scm.path}</scm.connection.url>
+        <scm.url>https://github.com/${scm.path}</scm.url>
     </properties>
 
 
@@ -43,15 +48,20 @@
         </developer>
     </developers>
 
+    <issueManagement>
+        <system>Github issues</system>
+        <url>https://github.com/wigforss/${project.artifactId}</url>
+    </issueManagement>
+
     <ciManagement>
         <system>Github Workflow</system>
         <url>https://github.com/wigforss/${project.artifactId}/</url>
     </ciManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:${scm.path}</connection>
-        <developerConnection>scm:git:git@github.com:${scm.path}</developerConnection>
-        <url>https://github.com/${scm.path}</url>
+        <connection>${scm.connection.url}</connection>
+        <developerConnection>${scm.connection.url}</developerConnection>
+        <url>${scm.url}</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -74,6 +84,50 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.1.1</version>
+                    <configuration>
+                        <additionalOptions>
+                            <additionalOption>-html5</additionalOption>
+                            <additionalOption>-Xdoclint:none</additionalOption>
+                        </additionalOptions>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.2.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.1.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.6</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.0</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Implementation-Build>${buildNumber}</Implementation-Build>
+                                <Implementation-Branch>${scmBranch}</Implementation-Branch>
+                                <Implementation-Build-Time>${buildDateTime}</Implementation-Build-Time>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -141,24 +195,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                        </manifest>
-                        <manifestEntries>
-                            <Implementation-Build>${buildNumber}</Implementation-Build>
-                            <Implementation-Branch>${scmBranch}</Implementation-Branch>
-                            <Implementation-Build-Time>${buildDateTime}</Implementation-Build-Time>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
 
@@ -174,7 +211,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.1.1</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -197,7 +233,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.2.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -220,7 +255,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
                         <configuration>
                             <gpgArguments>
                                 <arg>--batch</arg>
