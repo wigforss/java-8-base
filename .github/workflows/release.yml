@@ -12,6 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Checkout master
+      run: git checkout master
     - name: Cache maven
       uses: actions/cache@v1
       with:
