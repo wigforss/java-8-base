@@ -5,7 +5,7 @@
 
     <groupId>org.kasource</groupId>
     <artifactId>java-8-base</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>pom</packaging>
 
     <name>Java-8-Parent</name>
@@ -52,7 +52,7 @@
         <connection>scm:git:git@github.com:${scm.path}</connection>
         <developerConnection>scm:git:git@github.com:${scm.path}</developerConnection>
         <url>https://github.com/${scm.path}</url>
-        <tag>HEAD</tag>
+        <tag>java-8-base-0.1</tag>
     </scm>
 
     <distributionManagement>
