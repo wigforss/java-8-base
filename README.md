@@ -2,5 +2,3 @@
 ![](https://github.com/wigforss/java-8-base/workflows/Test%20and%20Deploy/badge.svg)
 
 Maven base POM Java 8 projects.
-
-Release branch
