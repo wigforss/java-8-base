@@ -4,12 +4,12 @@
 
 
     <groupId>org.kasource</groupId>
-    <artifactId>java-8-base</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <artifactId>java-base-pom</artifactId>
+    <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Java-8-Parent</name>
-    <description>The parent pom for Java 8 Projects</description>
+    <name>Java-Parent</name>
+    <description>The base parent pom for Java 8 Projects</description>
     <url>https://github.com/wigforss/${project.artifactId}</url>
 
     <properties>
