@@ -5,7 +5,7 @@
 
     <groupId>org.kasource</groupId>
     <artifactId>java-base-pom</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>pom</packaging>
 
     <name>Java-Parent</name>
@@ -61,7 +61,7 @@
         <connection>${scm.connection.url}</connection>
         <developerConnection>${scm.connection.url}</developerConnection>
         <url>${scm.url}</url>
-        <tag>HEAD</tag>
+        <tag>java-base-pom-0.2</tag>
     </scm>
 
     <distributionManagement>
