@@ -19,7 +19,6 @@
         <jdk.version>11</jdk.version>
         <maven.compiler.source>1.${jdk.version}</maven.compiler.source>
         <maven.compiler.target>1.${jdk.version}</maven.compiler.target>
-        <maven.compiler.release>${jdk.version}</maven.compiler.release>
         <maven.compiler.compilerVersion>1.${jdk.version}</maven.compiler.compilerVersion>
         <scm.path>wigforss/${project.artifactId}.git</scm.path>
         <scm.connection.url>scm:git:git@github.com:${scm.path}</scm.connection.url>
