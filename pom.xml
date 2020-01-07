@@ -5,7 +5,7 @@
 
     <groupId>org.kasource</groupId>
     <artifactId>java-base-pom</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Java-Parent</name>
