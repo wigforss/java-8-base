@@ -1,6 +1,7 @@
 # Base POM for Java Projects
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
-![](https://img.shields.io/badge/Package-POM-blue)
+![](https://img.shields.io/badge/Package-POM-2396ad)
+![](https://img.shields.io/badge/Repository-Maven%20Central-2396ad)  
 ![](https://github.com/wigforss/java-base-pom/workflows/Test%20and%20Deploy/badge.svg)
 
 Maven base parent POM for Java projects.
