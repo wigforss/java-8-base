@@ -6,6 +6,14 @@
 
 Maven base parent POM for Java projects.
 
+```
+<parent>
+    <groupId>org.kasource</groupId>
+    <artifactId>java-base-pom</artifactId>
+    <version>0.3</version>
+</parent>
+```
+
 Set common tags such as:
 * licenses
 * organization
