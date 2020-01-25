@@ -194,6 +194,17 @@
 
     <profiles>
         <profile>
+            <id>compile-java-11-plus</id>
+            <activation>
+                <jdk>(1.10,)</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>${jdk.version}</maven.compiler.source>
+                <maven.compiler.target>${jdk.version}</maven.compiler.target>
+                <maven.compiler.compilerVersion>${jdk.version}</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+        <profile>
             <id>javadoc</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
