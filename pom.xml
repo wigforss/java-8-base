@@ -4,7 +4,7 @@
 
     <groupId>org.kasource</groupId>
     <artifactId>java-base-pom</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Java-Parent</name>
@@ -193,6 +193,17 @@
 
 
     <profiles>
+        <profile>
+            <id>compile-java-11-plus</id>
+            <activation>
+                <jdk>(1.10,)</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>${jdk.version}</maven.compiler.source>
+                <maven.compiler.target>${jdk.version}</maven.compiler.target>
+                <maven.compiler.compilerVersion>${jdk.version}</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
         <profile>
             <id>javadoc</id>
             <activation>
